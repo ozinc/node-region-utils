@@ -1,0 +1,31 @@
+{
+  "name": "region-utils",
+  "version": "0.1.0",
+  "description": "Utilities to work with geographic regions.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ozinc/node-region-utils.git"
+  },
+  "keywords": [
+    "countries",
+    "iso",
+    "regions",
+    "whitelist",
+    "blacklist"
+  ],
+  "author": "OZ inc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ozinc/node-region-utils/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "country-list": "~0.0.3"
+  }
+}
