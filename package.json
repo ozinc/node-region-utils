@@ -1,6 +1,6 @@
 {
   "name": "region-lock",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "Utilities to work with geographic regions.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
