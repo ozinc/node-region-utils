@@ -1,11 +1,18 @@
 {
   "name": "region-utils",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Utilities to work with geographic regions.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha"
+    "build": "tsc",
+    "test": "mocha -r ts-node/register test/**/*.test.ts"
   },
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts",
+    "dist/regions.js",
+    "dist/regions.d.ts"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com:ozinc/node-region-utils.git"
@@ -26,6 +33,16 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "country-list": "~0.0.3"
+    "country-list": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/assert": "^1.5.0",
+    "@types/country-list": "^1.1.1",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.13",
+    "eslint": "^7.3.0",
+    "mocha": "^8.0.1",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
   }
 }

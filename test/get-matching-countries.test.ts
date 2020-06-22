@@ -1,28 +1,26 @@
-'use strict';
+import assert from 'assert';
+import regionUtils from './setup';
 
-var assert = require('assert');
-var regionUtils = require('./setup');
-
-describe('getMatchingCountries', function() {
-  it('returns empty array for no input', function() {
+describe('getMatchingCountries', () => {
+  it('returns empty array for no input', () => {
     assert.deepEqual(regionUtils.getMatchingCountries([]), []);
     assert.deepEqual(regionUtils.getMatchingCountries([], []), []);
     assert.deepEqual(regionUtils.getMatchingCountries(), []);
   });
 
-  it('returns whitelisted countries', function() {
+  it('returns whitelisted countries', () => {
     assert.deepEqual(regionUtils.getMatchingCountries(['IS', 'DK']), ['IS', 'DK']);
   });
 
-  it('returns whitelisted countries which are not blacklisted', function() {
+  it('returns whitelisted countries which are not blacklisted', () => {
     assert.deepEqual(regionUtils.getMatchingCountries(['IS', 'DK'], ['IS']), ['DK']);
   });
 
-  it('explodes whitelisted regions', function() {
+  it('explodes whitelisted regions', () => {
     assert.deepEqual(regionUtils.getMatchingCountries(['SCANDINAVIA']), ['DK', 'NO', 'SE']);
   });
 
-  it('explodes blacklisted regions', function() {
+  it('explodes blacklisted regions', () => {
     assert.deepEqual(regionUtils.getMatchingCountries(['DK', 'IS'], ['SCANDINAVIA']), ['IS']);
   });
 });
