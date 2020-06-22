@@ -1,11 +1,12 @@
 {
-  "name": "region-utils",
+  "name": "region-lock",
   "version": "1.0.0",
   "description": "Utilities to work with geographic regions.",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "mocha -r ts-node/register test/**/*.test.ts",
+    "test": "mocha -r ts-node/register src/**/*.test.ts",
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --fix"
   },
   "files": [
@@ -26,7 +27,7 @@
     "blacklist"
   ],
   "author": "OZ inc",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/ozinc/node-region-utils/issues"
   },
