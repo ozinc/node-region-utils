@@ -5,7 +5,7 @@ export const matchesRegion = (
   country: string,
   whitelist: null | string[] = [],
   blacklist: null | string[] = []
-) => {
+): boolean => {
   let matches = false;
 
   for (const region of whitelist || []) {
@@ -33,13 +33,13 @@ export interface CountrySet {
   [key: string]: boolean;
 }
 
-const setUnion = (countrySet: CountrySet, toAdd: string[]) => {
+const setUnion = (countrySet: CountrySet, toAdd: string[]): void => {
   for (const country of toAdd) {
     countrySet[country] = true;
   }
 };
 
-const setSubtract = (countrySet: CountrySet, toRemove: string[]) => {
+const setSubtract = (countrySet: CountrySet, toRemove: string[]): void => {
   for (const country of toRemove) {
     delete countrySet[country];
   }
@@ -48,7 +48,7 @@ const setSubtract = (countrySet: CountrySet, toRemove: string[]) => {
 export const getMatchingCountries = (
   whitelist: string[] = [],
   blacklist: string[] = []
-) => {
+): string[] => {
   // Creates a completely empty object (no prototype)
   const countrySet = Object.create(null);
 
@@ -63,16 +63,9 @@ export const getMatchingCountries = (
   return Object.keys(countrySet);
 };
 
-const isCountry = (country: string) => {
+const isCountry = (country: string): boolean => {
   return !!countryList().getName(country);
 };
-
-const allExports = Object.assign({}, regions, countryList, {
-  matchesRegion,
-  getMatchingCountries,
-  isCountry
-});
-
 
 export default {
   all: regions.all,

@@ -5,7 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
-    "test": "mocha -r ts-node/register test/**/*.test.ts"
+    "test": "mocha -r ts-node/register test/**/*.test.ts",
+    "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --fix"
   },
   "files": [
     "dist/index.js",
@@ -40,6 +41,8 @@
     "@types/country-list": "^1.1.1",
     "@types/mocha": "^7.0.2",
     "@types/node": "^14.0.13",
+    "@typescript-eslint/eslint-plugin": "^3.3.0",
+    "@typescript-eslint/parser": "^3.3.0",
     "eslint": "^7.3.0",
     "mocha": "^8.0.1",
     "ts-node": "^8.10.2",
