@@ -1,4 +1,4 @@
-import regionUtils from './index';
+import regionLock from './index';
 
-regionUtils.set('SCANDINAVIA', ['DK', 'NO', 'SE']);
-export default regionUtils;
+regionLock.set('SCANDINAVIA', ['DK', 'NO', 'SE']);
+export default regionLock;

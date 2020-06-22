@@ -1,26 +1,26 @@
 import assert from 'assert';
-import regionUtils from './setup';
+import regionLock from './setup';
 
 describe('getMatchingCountries', () => {
   it('returns empty array for no input', () => {
-    assert.deepEqual(regionUtils.getMatchingCountries([]), []);
-    assert.deepEqual(regionUtils.getMatchingCountries([], []), []);
-    assert.deepEqual(regionUtils.getMatchingCountries(), []);
+    assert.deepEqual(regionLock.getMatchingCountries([]), []);
+    assert.deepEqual(regionLock.getMatchingCountries([], []), []);
+    assert.deepEqual(regionLock.getMatchingCountries(), []);
   });
 
   it('returns whitelisted countries', () => {
-    assert.deepEqual(regionUtils.getMatchingCountries(['IS', 'DK']), ['IS', 'DK']);
+    assert.deepEqual(regionLock.getMatchingCountries(['IS', 'DK']), ['IS', 'DK']);
   });
 
   it('returns whitelisted countries which are not blacklisted', () => {
-    assert.deepEqual(regionUtils.getMatchingCountries(['IS', 'DK'], ['IS']), ['DK']);
+    assert.deepEqual(regionLock.getMatchingCountries(['IS', 'DK'], ['IS']), ['DK']);
   });
 
   it('explodes whitelisted regions', () => {
-    assert.deepEqual(regionUtils.getMatchingCountries(['SCANDINAVIA']), ['DK', 'NO', 'SE']);
+    assert.deepEqual(regionLock.getMatchingCountries(['SCANDINAVIA']), ['DK', 'NO', 'SE']);
   });
 
   it('explodes blacklisted regions', () => {
-    assert.deepEqual(regionUtils.getMatchingCountries(['DK', 'IS'], ['SCANDINAVIA']), ['IS']);
+    assert.deepEqual(regionLock.getMatchingCountries(['DK', 'IS'], ['SCANDINAVIA']), ['IS']);
   });
 });

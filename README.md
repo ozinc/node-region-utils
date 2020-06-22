@@ -1,9 +1,9 @@
-# Region Utilities
+# Region Lock
 
 To use, install into your project with npm:
 
 ```
-npm install region-utils --save
+npm install region-lock --save
 ```
 
 
@@ -24,10 +24,10 @@ not in the blacklist.
 Returns true if country is in whitelist and not in blacklist.
 
 ```javascript
-regionUtils.matchesRegion('IS')                     // false
-regionUtils.matchesRegion('IS', ['IS'])             // true
-regionUtils.matchesRegion('IS', ['GLOBAL'])         // true
-regionUtils.matchesRegion('IS', ['GLOBAL'], ['IS']) // false
+regionLock.matchesRegion('IS')                     // false
+regionLock.matchesRegion('IS', ['IS'])             // true
+regionLock.matchesRegion('IS', ['GLOBAL'])         // true
+regionLock.matchesRegion('IS', ['GLOBAL'], ['IS']) // false
 ```
 
 ### getMatchingCountries(whitelist, blacklist)
@@ -38,8 +38,8 @@ blacklist.
 ```javascript
 // Assuming SCANDINAVIA has been defined with `["DK", "NO", "SE"]`.
 
-regionUtils.getMatchingCountries(['IS'])                  // ['IS']
-regionUtils.getMatchingCountries(['SCANDINAVIA'], ['DK']) // ['NO', 'SE']
+regionLock.getMatchingCountries(['IS'])                  // ['IS']
+regionLock.getMatchingCountries(['SCANDINAVIA'], ['DK']) // ['NO', 'SE']
 ```
 
 ### regions.set(name, countries)
@@ -48,7 +48,7 @@ Defines a new region with the specified list of country codes. Can also
 be used to override the list of countries for an existing region.
 
 ```javascript
-regionUtils.regions.set('SCANDINAVIA', ['DK', 'NO', 'SE'])
+regionLock.regions.set('SCANDINAVIA', ['DK', 'NO', 'SE'])
 ```
 
 ### regions.get(name)
@@ -70,9 +70,9 @@ country codes.
 
 ## License
 
-    The MIT License (MIT)
+    The ISC License (MIT)
 
-    Copyright (c) 2014 OZ, inc.
+    Copyright (c) 2020 OZ, inc.
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
